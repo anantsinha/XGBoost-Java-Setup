@@ -2,6 +2,9 @@ plugins {
     id("java")
 }
 
+val scalarBinaryVersion: String by project
+val xgboostVersion: String by project
+
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
@@ -10,6 +13,9 @@ repositories {
 }
 
 dependencies {
+    implementation("ml.dmlc:xgboost4j_${scalarBinaryVersion}:$xgboostVersion")
+    implementation("ml.dmlc:xgboost4j-spark_${scalarBinaryVersion}:$xgboostVersion")
+
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
 }
